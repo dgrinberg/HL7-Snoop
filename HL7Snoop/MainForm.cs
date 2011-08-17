@@ -42,7 +42,7 @@ namespace HL7Snoop
             {
                 string hl7 = this.tbMessage.Text;
 
-                PipeParser parser = new PipeParser();
+                PipeParserNew parser = new PipeParserNew();
                 IMessage hl7Message;
                 if (!string.IsNullOrEmpty(this.tbVersion.Text))
                 {
