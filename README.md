@@ -6,4 +6,4 @@ The tree structure shows both the field name, id and value from the HL7 file.
 
 This is a simple little tool that aides anyone using NHapi to parse HL7 files.
 
-See this [blog post]:http://ontheperiphery.veraida.com/content/hl7-snoop, for more details and some screen shots
+See this [blog post](http://ontheperiphery.veraida.com/content/hl7-snoop), for more details and some screen shots
