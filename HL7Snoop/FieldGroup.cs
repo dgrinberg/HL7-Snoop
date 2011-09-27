@@ -11,7 +11,7 @@ namespace HL7Snoop
     /// <summary>
     /// A collection of fields, for display in TreeListView
     /// </summary>
-    public class FieldGroup
+    public class FieldGroup : Field
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FieldGroup"/> class.
@@ -22,29 +22,6 @@ namespace HL7Snoop
             this.FieldList = new List<object>();
         }
 
-        /// <summary>
-        /// Gets or sets the id, the HL7 location id of the field group
-        /// </summary>
-        /// <value>
-        /// The id.
-        /// </value>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name, as per the model definition
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the value.
-        /// </summary>
-        /// <value>
-        /// The value.
-        /// </value>
-        public string Value { get; set; }
 
         /// <summary>
         /// Gets or sets the field list, from the HL7 message

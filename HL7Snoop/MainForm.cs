@@ -7,11 +7,11 @@
 namespace HL7Snoop
 {
     using System;
-    using System.IO;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using System.Windows.Forms;
     using NHapi.Base.Model;
-    using NHapi.Base.Parser;
+    using NHapi.Base.Parser.Pipe;
 
     /// <summary>
     /// The main form of the application, holds the:
@@ -42,7 +42,7 @@ namespace HL7Snoop
             {
                 string hl7 = this.tbMessage.Text;
 
-                PipeParserNew parser = new PipeParserNew();
+                PipeParser parser = new PipeParser();
                 IMessage hl7Message;
                 if (!string.IsNullOrEmpty(this.tbVersion.Text))
                 {
@@ -254,6 +254,24 @@ namespace HL7Snoop
                 FieldGroup grp = (FieldGroup)x;
                 return grp.FieldList;
             };
+        }
+
+        private void tbMessage_TextChanged(object sender, EventArgs e)
+        {
+            this.tbMessage.Text = this.CorrectLineFeeds(this.tbMessage.Text);
+        }
+
+        private string CorrectLineFeeds(string message)
+        {
+            if (Regex.IsMatch(message, "([^\r])\n"))
+            {
+                return Regex.Replace(message, "([^\r])\n", "$1\r\n");
+            }
+            if (Regex.IsMatch(message, "\r([^\n])"))
+            {
+                return Regex.Replace(message, "\r([^\n])", "\r\n$1");
+            }
+            return message;
         }
     }
 }

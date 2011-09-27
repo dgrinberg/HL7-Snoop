@@ -60,9 +60,9 @@ namespace HL7Snoop
         /// </summary>
         private void InitializeComponent()
         {
-            BrightIdeasSoftware.HeaderStateStyle headerStateStyle4 = new BrightIdeasSoftware.HeaderStateStyle();
-            BrightIdeasSoftware.HeaderStateStyle headerStateStyle5 = new BrightIdeasSoftware.HeaderStateStyle();
-            BrightIdeasSoftware.HeaderStateStyle headerStateStyle6 = new BrightIdeasSoftware.HeaderStateStyle();
+            BrightIdeasSoftware.HeaderStateStyle headerStateStyle1 = new BrightIdeasSoftware.HeaderStateStyle();
+            BrightIdeasSoftware.HeaderStateStyle headerStateStyle2 = new BrightIdeasSoftware.HeaderStateStyle();
+            BrightIdeasSoftware.HeaderStateStyle headerStateStyle3 = new BrightIdeasSoftware.HeaderStateStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnParse = new System.Windows.Forms.Button();
             this.headerFormatStyle1 = new BrightIdeasSoftware.HeaderFormatStyle();
@@ -91,9 +91,9 @@ namespace HL7Snoop
             // 
             // headerFormatStyle1
             // 
-            this.headerFormatStyle1.Hot = headerStateStyle4;
-            this.headerFormatStyle1.Normal = headerStateStyle5;
-            this.headerFormatStyle1.Pressed = headerStateStyle6;
+            this.headerFormatStyle1.Hot = headerStateStyle1;
+            this.headerFormatStyle1.Normal = headerStateStyle2;
+            this.headerFormatStyle1.Pressed = headerStateStyle3;
             // 
             // treeListView1
             // 
@@ -166,6 +166,7 @@ namespace HL7Snoop
             this.tbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbMessage.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMessage.Location = new System.Drawing.Point(14, 32);
             this.tbMessage.Multiline = true;
             this.tbMessage.Name = "tbMessage";
@@ -173,6 +174,7 @@ namespace HL7Snoop
             this.tbMessage.Size = new System.Drawing.Size(681, 197);
             this.tbMessage.TabIndex = 9;
             this.tbMessage.WordWrap = false;
+            this.tbMessage.TextChanged += new System.EventHandler(this.tbMessage_TextChanged);
             // 
             // tbVersion
             // 
