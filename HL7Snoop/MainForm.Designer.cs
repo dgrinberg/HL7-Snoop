@@ -60,6 +60,7 @@ namespace HL7Snoop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             BrightIdeasSoftware.HeaderStateStyle headerStateStyle1 = new BrightIdeasSoftware.HeaderStateStyle();
             BrightIdeasSoftware.HeaderStateStyle headerStateStyle2 = new BrightIdeasSoftware.HeaderStateStyle();
             BrightIdeasSoftware.HeaderStateStyle headerStateStyle3 = new BrightIdeasSoftware.HeaderStateStyle();
@@ -114,7 +115,7 @@ namespace HL7Snoop
             this.treeListView1.Name = "treeListView1";
             this.treeListView1.OwnerDraw = true;
             this.treeListView1.ShowGroups = false;
-            this.treeListView1.Size = new System.Drawing.Size(685, 310);
+            this.treeListView1.Size = new System.Drawing.Size(685, 300);
             this.treeListView1.TabIndex = 6;
             this.treeListView1.UseCompatibleStateImageBehavior = false;
             this.treeListView1.View = System.Windows.Forms.View.Details;
@@ -168,6 +169,7 @@ namespace HL7Snoop
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMessage.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMessage.Location = new System.Drawing.Point(14, 32);
+            this.tbMessage.MaximumSize = new System.Drawing.Size(10000, 197);
             this.tbMessage.Multiline = true;
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -178,6 +180,7 @@ namespace HL7Snoop
             // 
             // tbVersion
             // 
+            this.tbVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbVersion.Location = new System.Drawing.Point(515, 5);
             this.tbVersion.Name = "tbVersion";
             this.tbVersion.Size = new System.Drawing.Size(100, 20);
@@ -185,6 +188,7 @@ namespace HL7Snoop
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(466, 8);
             this.label1.Name = "label1";
