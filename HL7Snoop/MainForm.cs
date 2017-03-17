@@ -181,7 +181,7 @@ namespace HL7Snoop
         {
             string desc = fieldDescription == string.Empty ? dataItem.Description : fieldDescription;
 
-            if (!string.IsNullOrEmpty(dataItem.Value))
+            if (checkBoxEmptyFields.Checked || !string.IsNullOrEmpty(dataItem.Value))
             {
                 parentNode.FieldList.Add(new Field() { Name = desc, Id = fieldCount, Value = dataItem.Value });
             }
