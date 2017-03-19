@@ -6,12 +6,12 @@
 
 namespace HL7Snoop
 {
+    using NHapi.Base.Model;
+    using NHapi.Base.Parser;
     using System;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
-    using NHapi.Base.Model;
-    using NHapi.Base.Parser.Pipe;
 
     /// <summary>
     /// The main form of the application, holds the:
@@ -181,7 +181,7 @@ namespace HL7Snoop
         {
             string desc = fieldDescription == string.Empty ? dataItem.Description : fieldDescription;
 
-            if (!string.IsNullOrEmpty(dataItem.Value))
+            if (checkBoxEmptyFields.Checked || !string.IsNullOrEmpty(dataItem.Value))
             {
                 parentNode.FieldList.Add(new Field() { Name = desc, Id = fieldCount, Value = dataItem.Value });
             }
@@ -189,8 +189,8 @@ namespace HL7Snoop
 
         /// <summary>
         /// Processes the varies.
-        /// "Varies" are the data in the OBX segment, the sending application can set the type hence generically the OBX 
-        /// value field is a variant type. 
+        /// "Varies" are the data in the OBX segment, the sending application can set the type hence generically the OBX
+        /// value field is a variant type.
         /// The "Varies" data parameter contains the data in type IType (hence being passed back to process field).
         /// </summary>
         /// <param name="varies">The varies.</param>
@@ -225,7 +225,7 @@ namespace HL7Snoop
             this.AddChildGroup(parentNode, subParent);
         }
 
-        #endregion
+        #endregion Hl7Parsing functions
 
         /// <summary>
         /// Adds the child group, to the parent node, only if the child group acutally contains fields.
@@ -245,11 +245,11 @@ namespace HL7Snoop
         /// </summary>
         private void InitializeTreeList()
         {
-            this.treeListView1.CanExpandGetter = delegate(object x)
+            this.treeListView1.CanExpandGetter = delegate (object x)
             {
                 return x is FieldGroup;
             };
-            this.treeListView1.ChildrenGetter = delegate(object x)
+            this.treeListView1.ChildrenGetter = delegate (object x)
             {
                 FieldGroup grp = (FieldGroup)x;
                 return grp.FieldList;

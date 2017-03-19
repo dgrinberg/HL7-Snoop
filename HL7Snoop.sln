@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26206.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7Snoop", "HL7Snoop\HL7Snoop.csproj", "{FB14A390-5CE7-4BA3-8D15-36A70C734FD5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7SnoopWPF", "HL7SnoopWPF\HL7SnoopWPF.csproj", "{208413E7-1C40-4991-9B66-705A9EB38C3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +25,6 @@ Global
 		{FB14A390-5CE7-4BA3-8D15-36A70C734FD5}.Release|Mixed Platforms.Build.0 = Release|x86
 		{FB14A390-5CE7-4BA3-8D15-36A70C734FD5}.Release|x86.ActiveCfg = Release|x86
 		{FB14A390-5CE7-4BA3-8D15-36A70C734FD5}.Release|x86.Build.0 = Release|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Debug|x86.ActiveCfg = Debug|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Debug|x86.Build.0 = Debug|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Release|Any CPU.ActiveCfg = Release|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Release|Mixed Platforms.Build.0 = Release|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Release|x86.ActiveCfg = Release|x86
-		{208413E7-1C40-4991-9B66-705A9EB38C3D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

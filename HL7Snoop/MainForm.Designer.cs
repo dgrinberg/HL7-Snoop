@@ -76,6 +76,7 @@ namespace HL7Snoop
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.tbVersion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxEmptyFields = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.treeListView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +105,7 @@ namespace HL7Snoop
             this.treeListView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeListView1.CheckBoxes = false;
+            this.treeListView1.CellEditUseWholeCell = false;
             this.treeListView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colId,
@@ -113,7 +114,6 @@ namespace HL7Snoop
             this.treeListView1.GridLines = true;
             this.treeListView1.Location = new System.Drawing.Point(11, 253);
             this.treeListView1.Name = "treeListView1";
-            this.treeListView1.OwnerDraw = true;
             this.treeListView1.ShowGroups = false;
             this.treeListView1.Size = new System.Drawing.Size(685, 300);
             this.treeListView1.TabIndex = 6;
@@ -196,11 +196,23 @@ namespace HL7Snoop
             this.label1.TabIndex = 11;
             this.label1.Text = "Version:";
             // 
+            // checkBoxEmptyFields
+            // 
+            this.checkBoxEmptyFields.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxEmptyFields.AutoSize = true;
+            this.checkBoxEmptyFields.Location = new System.Drawing.Point(342, 7);
+            this.checkBoxEmptyFields.Name = "checkBoxEmptyFields";
+            this.checkBoxEmptyFields.Size = new System.Drawing.Size(119, 17);
+            this.checkBoxEmptyFields.TabIndex = 12;
+            this.checkBoxEmptyFields.Text = "Display Empty fields";
+            this.checkBoxEmptyFields.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 575);
+            this.Controls.Add(this.checkBoxEmptyFields);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbVersion);
             this.Controls.Add(this.tbMessage);
@@ -218,5 +230,7 @@ namespace HL7Snoop
         }
 
         #endregion
+
+        private System.Windows.Forms.CheckBox checkBoxEmptyFields;
     }
 }
