@@ -83,7 +83,7 @@ namespace HL7Snoop
             // btnParse
             // 
             this.btnParse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnParse.Location = new System.Drawing.Point(621, 3);
+            this.btnParse.Location = new System.Drawing.Point(622, 5);
             this.btnParse.Name = "btnParse";
             this.btnParse.Size = new System.Drawing.Size(75, 23);
             this.btnParse.TabIndex = 0;
@@ -146,11 +146,11 @@ namespace HL7Snoop
             this.lblMessageType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblMessageType.AutoSize = true;
-            this.lblMessageType.Location = new System.Drawing.Point(186, 11);
+            this.lblMessageType.Location = new System.Drawing.Point(169, 11);
             this.lblMessageType.Name = "lblMessageType";
-            this.lblMessageType.Size = new System.Drawing.Size(50, 13);
+            this.lblMessageType.Size = new System.Drawing.Size(80, 13);
             this.lblMessageType.TabIndex = 7;
-            this.lblMessageType.Text = "Message";
+            this.lblMessageType.Text = "Message Type:";
             this.lblMessageType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMessageVersion
@@ -159,15 +159,15 @@ namespace HL7Snoop
             this.lblMessageVersion.Location = new System.Drawing.Point(21, 11);
             this.lblMessageVersion.Name = "lblMessageVersion";
             this.lblMessageVersion.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblMessageVersion.Size = new System.Drawing.Size(42, 13);
+            this.lblMessageVersion.Size = new System.Drawing.Size(92, 13);
             this.lblMessageVersion.TabIndex = 8;
-            this.lblMessageVersion.Text = "Version";
+            this.lblMessageVersion.Text = "Detected Version:";
             this.lblMessageVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tbVersion
             // 
             this.tbVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbVersion.Location = new System.Drawing.Point(515, 5);
+            this.tbVersion.Location = new System.Drawing.Point(515, 8);
             this.tbVersion.Name = "tbVersion";
             this.tbVersion.Size = new System.Drawing.Size(100, 20);
             this.tbVersion.TabIndex = 10;
@@ -176,7 +176,7 @@ namespace HL7Snoop
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(466, 8);
+            this.label1.Location = new System.Drawing.Point(466, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 11;
@@ -186,7 +186,7 @@ namespace HL7Snoop
             // 
             this.checkBoxEmptyFields.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxEmptyFields.AutoSize = true;
-            this.checkBoxEmptyFields.Location = new System.Drawing.Point(342, 7);
+            this.checkBoxEmptyFields.Location = new System.Drawing.Point(341, 10);
             this.checkBoxEmptyFields.Name = "checkBoxEmptyFields";
             this.checkBoxEmptyFields.Size = new System.Drawing.Size(119, 17);
             this.checkBoxEmptyFields.TabIndex = 12;
@@ -205,11 +205,10 @@ namespace HL7Snoop
             this.rtbMessage.TabIndex = 13;
             this.rtbMessage.Text = "";
             this.rtbMessage.WordWrap = false;
-            this.rtbMessage.TextChanged += new System.EventHandler(this.rtbMessage_TextChanged);
             // 
             // txtVersion
             // 
-            this.txtVersion.Location = new System.Drawing.Point(80, 8);
+            this.txtVersion.Location = new System.Drawing.Point(116, 8);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.ReadOnly = true;
             this.txtVersion.Size = new System.Drawing.Size(47, 20);
@@ -217,7 +216,7 @@ namespace HL7Snoop
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(246, 5);
+            this.txtMessage.Location = new System.Drawing.Point(252, 7);
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.ReadOnly = true;
             this.txtMessage.Size = new System.Drawing.Size(74, 20);

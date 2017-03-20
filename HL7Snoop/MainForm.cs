@@ -41,7 +41,7 @@ namespace HL7Snoop
         {
             try
             {
-                string hl7 = this.rtbMessage.Text;
+                string hl7 = CorrectLineFeeds(this.rtbMessage.Text);
 
                 PipeParser parser = new PipeParser();
                 IMessage hl7Message;
@@ -259,16 +259,15 @@ namespace HL7Snoop
 
         private string CorrectLineFeeds(string message)
         {
-            string result = message;
-            if (Regex.IsMatch(result, "([^\r])\n"))
+            if (Regex.IsMatch(message, "([^\r])\n"))
             {
-                result = Regex.Replace(result, "([^\r])\n", "$1" + System.Environment.NewLine);
+                return Regex.Replace(message, "([^\r])\n", "$1\r\n");
             }
-            if (Regex.IsMatch(result, "\r([^\n])"))
+            if (Regex.IsMatch(message, "\r([^\n])"))
             {
-                result = Regex.Replace(result, "\r([^\n])", "\r\n$1");
+                return Regex.Replace(message, "\r([^\n])", "\r\n$1");
             }
-            return result;
+            return message;
         }
 
         private void treeListView1_SelectionChanged(object sender, EventArgs e)
@@ -293,13 +292,8 @@ namespace HL7Snoop
                         rtbMessage.SelectionBackColor = System.Drawing.Color.Yellow;
                     }
                 }
+                rtbMessage.SelectionLength = 0;
             }
-        }
-
-        private void rtbMessage_TextChanged(object sender, EventArgs e)
-        {
-            //this.rtbMessage.Text = this.CorrectLineFeeds(this.rtbMessage.Text);
-            this.rtbMessage.Text = this.rtbMessage.Text.Replace(@"\n", System.Environment.NewLine);
         }
     }
 }
