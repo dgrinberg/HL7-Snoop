@@ -32,8 +32,6 @@ namespace HL7Snoop
 
         private System.Windows.Forms.Label lblMessageVersion;
 
-        private System.Windows.Forms.TextBox tbMessage;
-
         private System.Windows.Forms.TextBox tbVersion;
 
         private System.Windows.Forms.Label label1;
@@ -73,10 +71,12 @@ namespace HL7Snoop
             this.colValue = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.lblMessageType = new System.Windows.Forms.Label();
             this.lblMessageVersion = new System.Windows.Forms.Label();
-            this.tbMessage = new System.Windows.Forms.TextBox();
             this.tbVersion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxEmptyFields = new System.Windows.Forms.CheckBox();
+            this.rtbMessage = new System.Windows.Forms.RichTextBox();
+            this.txtVersion = new System.Windows.Forms.TextBox();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.treeListView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,6 +110,7 @@ namespace HL7Snoop
             this.colName,
             this.colId,
             this.colValue});
+            this.treeListView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeListView1.FullRowSelect = true;
             this.treeListView1.GridLines = true;
             this.treeListView1.Location = new System.Drawing.Point(11, 253);
@@ -120,6 +121,7 @@ namespace HL7Snoop
             this.treeListView1.UseCompatibleStateImageBehavior = false;
             this.treeListView1.View = System.Windows.Forms.View.Details;
             this.treeListView1.VirtualMode = true;
+            this.treeListView1.SelectionChanged += new System.EventHandler(this.treeListView1_SelectionChanged);
             // 
             // colName
             // 
@@ -144,39 +146,23 @@ namespace HL7Snoop
             this.lblMessageType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lblMessageType.AutoSize = true;
-            this.lblMessageType.Location = new System.Drawing.Point(11, 233);
+            this.lblMessageType.Location = new System.Drawing.Point(186, 11);
             this.lblMessageType.Name = "lblMessageType";
-            this.lblMessageType.Size = new System.Drawing.Size(0, 13);
+            this.lblMessageType.Size = new System.Drawing.Size(50, 13);
             this.lblMessageType.TabIndex = 7;
+            this.lblMessageType.Text = "Message";
             this.lblMessageType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMessageVersion
             // 
-            this.lblMessageVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMessageVersion.AutoSize = true;
-            this.lblMessageVersion.Location = new System.Drawing.Point(642, 232);
+            this.lblMessageVersion.Location = new System.Drawing.Point(21, 11);
             this.lblMessageVersion.Name = "lblMessageVersion";
             this.lblMessageVersion.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblMessageVersion.Size = new System.Drawing.Size(0, 13);
+            this.lblMessageVersion.Size = new System.Drawing.Size(42, 13);
             this.lblMessageVersion.TabIndex = 8;
+            this.lblMessageVersion.Text = "Version";
             this.lblMessageVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbMessage
-            // 
-            this.tbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbMessage.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMessage.Location = new System.Drawing.Point(14, 32);
-            this.tbMessage.MaximumSize = new System.Drawing.Size(10000, 197);
-            this.tbMessage.Multiline = true;
-            this.tbMessage.Name = "tbMessage";
-            this.tbMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbMessage.Size = new System.Drawing.Size(681, 197);
-            this.tbMessage.TabIndex = 9;
-            this.tbMessage.WordWrap = false;
-            this.tbMessage.TextChanged += new System.EventHandler(this.tbMessage_TextChanged);
             // 
             // tbVersion
             // 
@@ -207,15 +193,47 @@ namespace HL7Snoop
             this.checkBoxEmptyFields.Text = "Display Empty fields";
             this.checkBoxEmptyFields.UseVisualStyleBackColor = true;
             // 
+            // rtbMessage
+            // 
+            this.rtbMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbMessage.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbMessage.HideSelection = false;
+            this.rtbMessage.Location = new System.Drawing.Point(11, 34);
+            this.rtbMessage.Name = "rtbMessage";
+            this.rtbMessage.Size = new System.Drawing.Size(685, 211);
+            this.rtbMessage.TabIndex = 13;
+            this.rtbMessage.Text = "";
+            this.rtbMessage.WordWrap = false;
+            this.rtbMessage.TextChanged += new System.EventHandler(this.rtbMessage_TextChanged);
+            // 
+            // txtVersion
+            // 
+            this.txtVersion.Location = new System.Drawing.Point(80, 8);
+            this.txtVersion.Name = "txtVersion";
+            this.txtVersion.ReadOnly = true;
+            this.txtVersion.Size = new System.Drawing.Size(47, 20);
+            this.txtVersion.TabIndex = 14;
+            // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(246, 5);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ReadOnly = true;
+            this.txtMessage.Size = new System.Drawing.Size(74, 20);
+            this.txtMessage.TabIndex = 15;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 575);
+            this.Controls.Add(this.txtMessage);
+            this.Controls.Add(this.txtVersion);
+            this.Controls.Add(this.rtbMessage);
             this.Controls.Add(this.checkBoxEmptyFields);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbVersion);
-            this.Controls.Add(this.tbMessage);
             this.Controls.Add(this.lblMessageVersion);
             this.Controls.Add(this.lblMessageType);
             this.Controls.Add(this.treeListView1);
@@ -232,5 +250,8 @@ namespace HL7Snoop
         #endregion
 
         private System.Windows.Forms.CheckBox checkBoxEmptyFields;
+        private System.Windows.Forms.RichTextBox rtbMessage;
+        private System.Windows.Forms.TextBox txtVersion;
+        private System.Windows.Forms.TextBox txtMessage;
     }
 }

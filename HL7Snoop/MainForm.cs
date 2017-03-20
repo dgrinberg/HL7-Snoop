@@ -6,6 +6,7 @@
 
 namespace HL7Snoop
 {
+    using BrightIdeasSoftware;
     using NHapi.Base.Model;
     using NHapi.Base.Parser;
     using System;
@@ -40,7 +41,7 @@ namespace HL7Snoop
         {
             try
             {
-                string hl7 = this.tbMessage.Text;
+                string hl7 = this.rtbMessage.Text;
 
                 PipeParser parser = new PipeParser();
                 IMessage hl7Message;
@@ -55,8 +56,8 @@ namespace HL7Snoop
 
                 if (hl7Message != null)
                 {
-                    this.lblMessageType.Text = hl7Message.GetStructureName();
-                    this.lblMessageVersion.Text = hl7Message.Version;
+                    this.txtMessage.Text = hl7Message.GetStructureName();
+                    this.txtVersion.Text = hl7Message.Version;
 
                     FieldGroup messageGroup = new FieldGroup() { Name = hl7Message.GetStructureName() };
                     this.ProcessStructureGroup((AbstractGroup)hl7Message, messageGroup);
@@ -256,22 +257,49 @@ namespace HL7Snoop
             };
         }
 
-        private void tbMessage_TextChanged(object sender, EventArgs e)
-        {
-            this.tbMessage.Text = this.CorrectLineFeeds(this.tbMessage.Text);
-        }
-
         private string CorrectLineFeeds(string message)
         {
-            if (Regex.IsMatch(message, "([^\r])\n"))
+            string result = message;
+            if (Regex.IsMatch(result, "([^\r])\n"))
             {
-                return Regex.Replace(message, "([^\r])\n", "$1\r\n");
+                result = Regex.Replace(result, "([^\r])\n", "$1" + System.Environment.NewLine);
             }
-            if (Regex.IsMatch(message, "\r([^\n])"))
+            if (Regex.IsMatch(result, "\r([^\n])"))
             {
-                return Regex.Replace(message, "\r([^\n])", "\r\n$1");
+                result = Regex.Replace(result, "\r([^\n])", "\r\n$1");
             }
-            return message;
+            return result;
+        }
+
+        private void treeListView1_SelectionChanged(object sender, EventArgs e)
+        {
+            var treeView = sender as TreeListView;
+            if (treeView.SelectedItem != null)
+            {
+                var searchText = ((Field)treeView.SelectedItem.RowObject).Value;
+
+                rtbMessage.SelectionStart = 0;
+                rtbMessage.SelectionLength = rtbMessage.Text.Length;
+                rtbMessage.SelectionBackColor = System.Drawing.Color.White;
+
+                if (!String.IsNullOrEmpty(searchText))
+                {
+                    var matches = Regex.Matches(rtbMessage.Text, Regex.Escape(searchText));
+
+                    foreach (Match match in matches)
+                    {
+                        rtbMessage.SelectionStart = match.Index;
+                        rtbMessage.SelectionLength = match.Length;
+                        rtbMessage.SelectionBackColor = System.Drawing.Color.Yellow;
+                    }
+                }
+            }
+        }
+
+        private void rtbMessage_TextChanged(object sender, EventArgs e)
+        {
+            //this.rtbMessage.Text = this.CorrectLineFeeds(this.rtbMessage.Text);
+            this.rtbMessage.Text = this.rtbMessage.Text.Replace(@"\n", System.Environment.NewLine);
         }
     }
 }
